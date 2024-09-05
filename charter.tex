@@ -1,11 +1,11 @@
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
-codirector, % Uncomment to add a codirector to the title page
+%codirector, % Uncomment to add a codirector to the title page
 ]{charter} 
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Desarrollo de un Sistema Embebido para la Gestión y Monitoreo de Cultivos Verticales} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -15,20 +15,20 @@ codirector, % Uncomment to add a codirector to the title page
 %\posgrado{Maestría en Internet de las cosas}
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Título y Nombre del autor}
+\autor{Ing. José Luis Krüger}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Título y Nombre del director}
-\pertenenciaDirector{pertenencia} 
-\codirector{Título y Nombre del codirector} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
-\pertenenciaCoDirector{FIUBA}
+\director{}
+\pertenenciaDirector{} 
+\codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
+\pertenenciaCoDirector{}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Lic. Rocío Altamirano}
+\empresaCliente{}
  
-\fechaINICIO{30 de abril de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2023} 	%Fecha de final de cursada de GdP
+\fechaINICIO{20 de agosto de 2024}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{8 de octubre de 2024} 	%Fecha de final de cursada de GdP
 \fechaFINALTrabajo{15 de mayo de 2024}	%Fecha de defensa pública del trabajo final
 
 
@@ -84,7 +84,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de una caldera industrial}. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en la implementación de un prototipo de un sistema de monitoreo y gestión de cultivo hidropónico. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -105,51 +105,66 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección. En cada entrega parcial deben eliminar los comandos begin y end del bloque consigna de las secciones que hayan completado.
-El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+%\begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección. En cada entrega parcial deben eliminar los comandos begin y end del bloque consigna de las secciones que hayan completado.
+%El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
 
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+%Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+%Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
 
-\begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
+%\begin{itemize}
+%	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
+%	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
+%	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
+%	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
+%	\item ¿En qué estado del ciclo de vida está la solución que se propone?
+%	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
+%	\item ¿Por dónde pasa la innovación?
+%\end{itemize}
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
+%La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
 
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+%Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+
+%\begin{figure}[htpb]
+%\centering 
+%\includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
+%\caption{Diagrama en bloques del sistema.}
+%\label{fig:diagBloques}
+%\end{figure}
+
+%\vspace{25px}
+
+%El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
+
+%Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
+%\end{consigna}
+
+Con la población mundial que ronda los 8000 millones de personas y sigue en crecimiento, la agricultura enfrenta el reto de ser más eficiente y sostenible. Los cultivos verticales se presentan como una solución innovadora que optimiza el uso del espacio y los recursos, especialmente en entornos urbanos donde el suelo es limitado y costoso.
+
+Este tipo de agricultura utiliza técnicas como la hidroponía, que permite un uso preciso del agua, y la aeroponía, que maximiza el oxígeno disponible para las raíces. Además, las granjas verticales aprovechan áreas infrautilizadas, como edificios abandonados o naves industriales, y permiten cultivar alimentos en zonas donde la agricultura tradicional resulta dificil de desarrollar. Así, se logra una mayor densidad de cultivo y se contribuye a la sostenibilidad al reducir el uso de pesticidas y fertilizantes.
+
+Aunque los cultivos verticales requieren un alto nivel de tecnología y tienen costes energéticos asociados, su capacidad para ahorrar recursos, disminuir la huella de carbono y fomentar la producción local y el autoconsumo los posiciona como una opción clave para la agricultura del futuro.
+
+Como proyecto final de la especialización en sistemas embebidos, se propone desarrollar un sistema de monitoreo y gestión para cultivos verticales. Dicho trabajo se trata de un emprendimiento personal y tiene por objetivo permitir controlar y potenciar los factores de crecimiento de las plantas como la nutrición del sustrato, la luz necesaria para fotosíntesis o la oxigenación de las raíces y, al mismo tiempo, optimizar el uso de un recurso tan preciado como el agua.
+
+Por un lado, para lograr  la optimización del agua, se utilizará un circuito cerrado de modo que el desperdicio del recurso sea mínimo. Por otro, el monitoreo y control de variables como el pH de la solución nutritiva, su conductividad, temperatura, etc. permitirá lograr un óptimo crecimiento de las plantas al mismo tiempo que el usuario será alertado de cualquier anomalía que se produzca en el sistema.
+
+Los sistemas hidropónicos actuales dependen del usuario para medir de forma manual variables clave como el pH y la temperatura, o directamente no se miden. Utilizan temporizadores genéricos para el riego y, en muchos casos, no se controla la temperatura o la iluminación que reciben las plantas, lo que limita su eficiencia en comparación con los métodos tradicionales. La solución que se presenta en este informe, en cambio, no solo permite medir con precisión todas estas variables, sino que también ajusta automáticamente los controles necesarios, con minima intervención del usuario. Esto aporta trazabilidad y facilita el ajuste de parámetros para mejorar la productividad a futuro.
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.65\textwidth]{./Figuras/d_bloques.jpeg}
 \caption{Diagrama en bloques del sistema.}
-\label{fig:diagBloques}
+\label{fig:d_bloques}
 \end{figure}
 
-\vspace{25px}
-
-El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
-
-Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
-\end{consigna}
+En la figura \ref{fig:d_bloques} se presenta el diagrama en bloques de la solución propuesta. Este sistema permitirá controlar el riego, la iluminación y la ventilación de las raíces, al tiempo que monitoreará otras variables críticas para su operación. Se diseñará para un cultivo urbano pequeño, ubicado en el interior de una vivienda, pero será fácilmente escalable, ya que se podrá ampliar simplemente multiplicando el módulo completo. El servidor central será diseñado para gestionar y centralizar la información de una gran cantidad de módulos, de modo que el usuario solo necesite registrar el suyo en el sistema.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} % este comando se debe borrar para la entrega, junto con la contraparte \end{consigna}{red} 
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
-
-Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, \textbf{no debe ser colocado también como miembro del equipo}.
-
+%\begin{consigna}{red} % este comando se debe borrar para la entrega, junto con la contraparte \end{consigna}{red} 
 
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
@@ -158,88 +173,90 @@ Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
-Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
-Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Cliente       & \clientename      &\empclientename	&     -   	\\ \hline
+Responsable   & \authorname       &    FIUBA   		& Alumno 	\\ \hline
+Orientador    & \supname -	      & \pertesupname -	& Director del Trabajo Final \\ \hline
+Usuario final &  Agricultor organico   	  &    -          	&   -     	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los orientadores.
 
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
- 
-Por ejemplo:
 \begin{itemize}
-	\item Orientador: la Dra. Ing. María Gómez es experta en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
+	\item Orientador: No definido
+
+	\item Cliente: \clientename
 \end{itemize}
 
-\end{consigna} % este comando se debe borrar para la entrega, junto con la contraparte \begin{consigna}{red}
+%\end{consigna} % este comando se debe borrar para la entrega, junto con la contraparte \begin{consigna}{red}
 
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que continúe con la idea de la frase ``el propósito de este proyecto es...'' (omitir la frase, ya que está en el título de la sección).
-\end{consigna}
-
+Desarrollar un prototipo funcional y escalable que permita automatizar y optimizar los sistemas hidropónicos actuales, de modo que el usuario no necesite realizar monitoreos y ajustes manuales. Busca mejorar la eficiencia en el uso de recursos como el agua, los nutrientes y la energía, además de garantizar un control preciso de las condiciones de cultivo. Con esto, se espera aumentar la productividad y la sostenibilidad de los cultivos hidropónicos mediante un sistema que ofrece trazabilidad completa y facilita la toma de decisiones para futuros ajustes, logrando una producción más rentable, sustentable y tolerante a cambios en las condiciones ambientales.
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
+%\begin{consigna}{red}
+%¿Qué se incluye y que no se incluye en este proyecto?
 
-Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
+%Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
 
-Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
+%Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
 
 El proyecto incluye:
 \begin{itemize}
-	\item Ítem 1.
-	\item Ítem 2.
+	\item Desarrollo del prototipo funcional y escalable.
 		\begin{itemize}
-		\item Subítem 1.
-		\item Subítem 2.
-		\item ...
+		\item Diseño de un sistema automatizado para el control del riego, la iluminación y la ventilación en cultivos hidropónicos verticales.
+		\item Desarrollo del firmware para el microcontrolador.
+		\item Desarrollo de una aplicación REST API (incluida la base de datos) y una PWA (Progressive Web App) como interfaz de usuario.
 		\end{itemize}
-	\item ...
+	\item Pruebas y validación del prototipo.
+		\begin{itemize}
+		\item Realización de pruebas en un entorno controlado con cultivos hidropónicos verticales para validar la precisión y efectividad del sistema en el control del riego, la iluminación y la ventilación.
+		\item Ajuste de componentes y firmware según los resultados obtenidos durante las pruebas.
+		\end{itemize}
+	\item Desarrollo de la PCB centralizadora de los módulos electrónicos utilizados.
+	\item Memoria técnica.
 	
 \end{itemize}
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
+El proyecto no incluye:
+\begin{itemize}
+	\item Control de otras variables ambientales, como el pH o la temperatura del sustrato.
+	\item Soporte técnico o mantenimiento continuado del sistema después de la entrega del prototipo.
+	\item Adaptación del sistema a otros tipos de cultivos hidropónicos no verticales o infraestructuras específicas que no sean verticales.
+	\item Producción a gran escala del sistema automatizado, más allá del prototipo desarrollado.
+	\item Desarrollo de sistemas de seguridad adicionales más allá de lo necesario para el prototipo.
+	\item Implementación de tecnología para la optimización del consumo energético para producción a gran escala.
+	\item Procesamiento estadístico de los datos almacenados.
+	
+\end{itemize}
 
-\end{consigna}
+%Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
+
+%\end{consigna}
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
+%\begin{consigna}{red}
+%``Para el desarrollo del presente proyecto se supone que: ...''
 
 \begin{itemize}
-	\item Supuesto 1.
-	\item Supuesto 2.
-	\item ...
+	\item Se dispondrá del apoyo de un director con el conocimiento necesario para orientar técnicamente el proyecto y guiar el desarrollo del prototipo.
+	\item Se dispondrá de todos los materiales necesarios, incluidos sensores, actuadores, controladores y otros componentes electrónicos para el desarrollo del prototipo.
+	\item La integración de los sistemas de riego, iluminación y ventilación con el software desarrollado será viable técnicamente y no presentará incompatibilidades significativas.
+	\item  Se contará con el tiempo suficiente para completar todas las fases del proyecto, desde el diseño y desarrollo hasta las pruebas y ajustes necesarios, sin retrasos significativos.
+	\item Existirá un entorno controlado y adecuado para la instalación y prueba del prototipo en condiciones similares a las de operación real para cultivos hidropónicos verticales.
+	\item Las condiciones macroeconómicas permanecerán estables, sin variaciones significativas en el costo de materiales o componentes.
+	\item El PCB podrá desarrollarse.
 \end{itemize}
 
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-\end{consigna}
+%Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
+%\end{consigna}
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
