@@ -5,7 +5,7 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Desarrollo de un Sistema Embebido para la Gestión y Monitoreo de Cultivos Verticales} 
+\titulo{Desarrollo de un sistema embebido para la gestión y monitoreo de cultivos verticales} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -15,17 +15,17 @@
 %\posgrado{Maestría en Internet de las cosas}
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Ing. José Luis Krüger}
+\autor{Ing. José Luis Krüger }
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{}
-\pertenenciaDirector{} 
+\director{Esp. Ing. Mariano Campos }
+\pertenenciaDirector{FIUBA } 
 \codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
 \pertenenciaCoDirector{}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Lic. Rocío Altamirano}
-\empresaCliente{}
+\cliente{Lic. Rocío Altamirano }
+\empresaCliente{Particular }
  
 \fechaINICIO{20 de agosto de 2024}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{8 de octubre de 2024} 	%Fecha de final de cursada de GdP
@@ -58,8 +58,9 @@
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 5 inclusive                & {día} de {mes} de 202X \\ \hline
-%2      & Se completa hasta el punto 9 inclusive
+1      & Se completa hasta el punto 5 inclusive                & {3} de {septiembre} de 2024 \\ \hline
+2      & Se completa hasta el punto 9 inclusive					& {10} de {septiembre} de 2024 \\
+\hline
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & {día} de {mes} de 202X \\ \hline
@@ -84,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en la implementación de un prototipo de un sistema de monitoreo y gestión de cultivo hidropónico. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en la implementación de un prototipo de un sistema de monitoreo y gestión de cultivo hidropónico. El trabajo tendrá un presupuesto preliminar estimado de 745 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -154,7 +155,7 @@ Los sistemas hidropónicos actuales dependen del usuario para medir de forma man
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.65\textwidth]{./Figuras/d_bloques.jpeg}
+\includegraphics[width=.85\textwidth]{./Figuras/d_bloques.png}
 \caption{Diagrama en bloques del sistema.}
 \label{fig:d_bloques}
 \end{figure}
@@ -175,16 +176,16 @@ En la figura \ref{fig:d_bloques} se presenta el diagrama en bloques de la soluci
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
 Cliente       & \clientename      &\empclientename	&     -   	\\ \hline
 Responsable   & \authorname       &    FIUBA   		& Alumno 	\\ \hline
-Orientador    & \supname -	      & \pertesupname -	& Director del Trabajo Final \\ \hline
-Usuario final &  Agricultor organico   	  &    -          	&   -     	\\ \hline
+Orientador    & \supname	      & \pertesupname	& Director del Trabajo Final \\ \hline
+Usuario final &  Agricultor orgánico   	  &    -          	&   -     	\\ \hline
 \end{tabularx}
 \end{table}
 
 
 \begin{itemize}
-	\item Orientador: No definido
+	\item Orientador: El \supname será quien dirija técnicamente el proyecto.
 
-	\item Cliente: \clientename
+	\item Cliente: La \clientename será quien testee y valide el prototipo del proyecto.
 \end{itemize}
 
 %\end{consigna} % este comando se debe borrar para la entrega, junto con la contraparte \begin{consigna}{red}
@@ -261,110 +262,277 @@ El proyecto no incluye:
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red}
-Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
+%\begin{consigna}{red}
+%Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
 
 \begin{enumerate}
-	\item Requerimientos funcionales:
+	\item \textbf{Requerimientos funcionales:}
 		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item El prototipo debe permitir el control automático del riego, iluminación y ventilación del cultivo (prioridad alta).
+			\item El sistema debe monitorear variables ambientales relevantes, como temperatura, humedad del sustrato, nivel, conductividad eléctrica y pH de la solución nutritiva (prioridad alta).
+			\item El usuario debe poder activar o desactivar manualmente las secuencias de riego (prioridad media).
+			\item El servidor debe generar alarmas y notificaciones en caso de condiciones anómalas, como fallos de sensores, nivel crítico de solución nutritiva, etc. (prioridad alta).
+		\item El sistema debe ser escalable, permitiendo la conexión y control de múltiples módulos hidropónicos (prioridad media).
+		\item El \textit{firmware} debe incluir un servidor embebido para la gestión local y remota de los parámetros del sistema (prioridad alta).
+		\item El usuario debe poder configurar el sistema mediante una interfaz gráfica amigable, accesible desde un dispositivo móvil (prioridad alta).
+		\item El producto debe permitir la programación de secuencias de riego en base a fecha, hora y duración o humedad del sustrato (prioridad alta).
+		\item El servidor central debe almacenar y procesar datos de todos los módulos conectados, permitiendo la trazabilidad y análisis histórico (prioridad media).
 		\end{enumerate}
-	\item Requerimientos de documentación:
+	\item \textbf{Requerimientos de documentación:}
 		\begin{enumerate}
-			\item Requerimiento 1.
-			\item Requerimiento 2 (prioridad menor)
+			\item Se debe proporcionar un manual de usuario detallado con instrucciones de configuración y operación del sistema (prioridad baja).
+			\item Se deben realizar diagramas esquemáticos del circuito, PCB y diagramas de conexiones (prioridad media).
+			\item El proyecto debe incluir documentación del código fuente con comentarios claros y comprensibles (prioridad media).
 		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\item \textbf{Requerimiento de testing:}
+	\begin{enumerate}
+	\item El sistema debe ser sometido a pruebas de funcionalidad completas para verificar el correcto funcionamiento de todas las características (prioridad alta).
+	\item Se deben realizar pruebas de estrés para garantizar la estabilidad del sistema bajo condiciones extremas de operación (prioridad media).
+	\item El \textit{firmware} debe pasar por pruebas de validación de comunicación de red (HTTP o MQTT) (prioridad alta).
+	\item El hardware debe ser testeado para asegurar su resistencia y fiabilidad en ambientes urbanos interiores y exteriores (prioridad alta).
+	\end{enumerate}
+	\item \textbf{Requerimientos de la interfaz de usuario:}
+	\begin{enumerate}
+	\item La interfaz de usuario debe ser intuitiva y fácil de usar, con menús claros para la configuración de parámetros del control del cultivo (prioridad alta).
+	\item La interfaz debe mostrar el estado en tiempo real de todas las variables monitoreadas (temperatura, humedad, nivel de agua, etc.) (prioridad alta).
+	\item La interfaz debe permitir el registro y gestión de múltiples módulos hidropónicos (prioridad baja).
+	\item La interfaz debe ser responsiva y compatible con dispositivos móviles modernos (prioridad alta).
+	\end{enumerate}
+	\item \textbf{Requerimientos interoperabilidad:}
+	\begin{enumerate}
+	\item Se debe asegurar compatibilidad con un protocolo de comunicación estándar como HTTP o MQTT (prioridad alta).
+	\end{enumerate}
+	\item \textbf{Requerimientos de normativas y regulaciones:}
+	\begin{enumerate}
+	\item El diseño del hardware debe cumplir con las normativas de seguridad eléctrica establecidas por la resolución 169/2018 de la Secretaría de Comercio, que adopta la norma IEC 62368-1 para equipos eléctricos (prioridad alta).
+	\item  Se debe cumplir con las regulaciones de radiofrecuencia y comunicaciones establecidas por la Enacom (Ente Nacional de Comunicaciones), que incluye la homologación de equipos bajo las normas de la Resolución 197/2004 y sus modificaciones (prioridad alta).
+	\item El hardware debe cumplir con las normas de compatibilidad electromagnética conforme a la Resolución 92/98 de la Secretaría de Industria, que adopta normas internacionales como la IEC CISPR 22 para la emisión de interferencias electromagnéticas (prioridad alta).
+	\end{enumerate}
+	\item \textbf{Requerimientos opcionales:}
+	\begin{enumerate}
+	\item El firmware podría permitir la integración con plataformas de automatización del hogar (e.g., Home Assistant, Google Home).
+	\item El sistema podría ser capaz de exportar datos en formatos compatibles con aplicaciones de análisis de datos (CSV, JSON).
+	\item El sistema podría incluir una funcionalidad de análisis predictivo para optimizar las secuencias de riego basadas en datos históricos.
+	\item La interfaz podría incluir un módulo de visualización de datos avanzado para el análisis gráfico de la eficiencia del cultivo.
+	\end{enumerate}
 \end{enumerate}
 
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
+%Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
 
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
+%Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
 
-\textbf{¡¡¡No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!}
+%\textbf{¡¡¡No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!}
 
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
+%Y al escribirlos seguir las siguientes reglas:
+%\begin{itemize}
+%	\item Ser breve y conciso (nadie lee cosas largas). 
+%	\item Ser específico: no dejar lugar a confusiones.
+%	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
+%\end{itemize}
 
-\end{consigna}
+%\end{consigna}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+%\begin{consigna}{red}
+%Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
 
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
+%Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
 
-El formato propuesto es: 
-\begin{enumerate}
-\item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
+%El formato propuesto es: 
+%\begin{enumerate}
+%\item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
+%\item ``Como usuario quiero poder cultivar vegetales de forma particular en mi propio domicilio, un departamento ubicado en un 8vo piso. Por esta razón, no cuento con el espacio necesario para el cultivo en tierra."
+%\item ``No cuento con el tiempo necesario para dedicarle al cuidado de las plantas, por lo que el sistema debería poder funcionar con la minima participación de alguien."
+%\item ``Me gustaría poder cambiar de lugar el cultivo cuando lo crea conveniente."
 
-\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
-\end{enumerate}
-\end{consigna}
+%\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+%\end{enumerate}
+%end{consigna}
+
+La ponderación de cada historia de usuario se basa en la serie de Fibonacci y se clasifica en tres niveles:
+
+\begin{itemize}
+    \item Baja (1)
+    \item Media (3)
+    \item Alta (5)
+\end{itemize}
+
+El puntaje total de cada historia se redondea hacia arriba al valor más cercano en la serie de Fibonacci, asegurando que los Story Points reflejen adecuadamente la magnitud del trabajo requerido.
+
+
+%\begin{itemize}
+\textbf{Historia 1:} ``Como agricultor urbano, quiero que el sistema hidropónico se encargue del riego, la luz y la oxigenación, así puedo cultivar sin preocuparme por hacer ajustes todo el tiempo."
+
+        \begin{itemize}
+            \item \textbf{Complejidad:} Alta (5)
+            \item \textbf{Dificultad:} Media (3)
+            \item \textbf{Incertidumbre:} Alta (5)
+        \end{itemize}
+        \textit{\textbf{Story Points:}} 13
+    %\end{itemize}
+
+\textbf{Historia 2:} ``Como alguien que vive en un departamento, quiero poder cultivar mis propias verduras en casa, aunque no tenga jardín."
+
+        \begin{itemize}
+            \item \textbf{Complejidad:} Media (3)
+            \item \textbf{Dificultad:} Baja (1)
+            \item \textbf{Incertidumbre:} Media (3)
+        \end{itemize}
+        \textit{\textbf{Story Points:}} 8
+    %\end{itemize}
+
+\textbf{Historia 3:} ``Como usuario ocupado, quiero que el sistema sea lo más autónomo posible, así no tengo que estar pendiente de las plantas todos los días."
+
+        \begin{itemize}
+            \item \textbf{Complejidad:} Baja (1)
+            \item \textbf{Dificultad:} Baja (1)
+            \item \textbf{Incertidumbre:} Baja (1)
+        \end{itemize}
+        \textit{\textbf{Story Points:}} 3
+
+\textbf{Historia 4:} ``Como alguien que se muda con frecuencia, quiero que el cultivo sea fácil de trasladar para poder llevarlo conmigo a diferentes lugares."
+
+        \begin{itemize}
+            \item \textbf{Complejidad:} Media (3)
+            \item \textbf{Dificultad:} Media (3)
+            \item \textbf{Incertidumbre:} Media (3)
+        \end{itemize}
+        \textit{\textbf{Story Points:}} 13
+
+ \textbf{Historia 5:} ``Como usuario preocupado por mis plantas, quiero recibir notificaciones en mi celular si algo anda mal, como falta de agua o nutrientes, para poder arreglarlo a tiempo."
+
+        \begin{itemize}
+            \item \textbf{Complejidad:} Alta (5)
+            \item \textbf{Dificultad:} Media (3)
+            \item \textbf{Incertidumbre:} Media (3)
+        \end{itemize}
+        \textit{\textbf{Story Points:}} 13
+
+ \textbf{Historia 6:} ``Como aficionado a la hidroponía, quiero ajustar los parámetros de riego, luz y nutrientes según lo que necesiten mis cultivos, para lograr los mejores resultados."
+
+        \begin{itemize}
+            \item \textbf{Complejidad:} Alta (5)
+            \item \textbf{Dificultad:} Alta (5)
+            \item \textbf{Incertidumbre:} Media (3)
+        \end{itemize}
+       \textit{\textbf{Story Points:}} 13
+
+ \textbf{Historia 7:} ``Como investigador de cultivos urbanos, quiero tener acceso a los datos históricos del cultivo para analizar cómo mejorar la producción."
+
+        \begin{itemize}
+            \item \textbf{Complejidad:} Media (3)
+            \item \textbf{Dificultad:} Media (3)
+            \item \textbf{Incertidumbre:} Baja (1)
+        \end{itemize}
+        \textit{\textbf{Story Points:}} 8
+  
+%\end{itemize}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-Los entregables del proyecto son (ejemplo):
+%\begin{consigna}{red}
+Los entregables del proyecto son:
 
 \begin{itemize}
 	\item Manual de usuario.
-	\item Diagrama de circuitos esquemáticos.
-	\item Código fuente del firmware.
-	\item Diagrama de instalación.
+	%\item Diagrama de circuitos esquemáticos.
+	%\item Código fuente del firmware.
+	%\item Diagrama de instalación.
+	\item Prototipo funcional.
 	\item Memoria del trabajo final.
-	\item etc...
+	%\item etc...
 \end{itemize}
-\end{consigna}
+%\end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
+%\begin{consigna}{red}
+%El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
+
+A continuación se realiza el desglose del proyecto en tareas:
 
 \begin{enumerate}
-\item Grupo de tareas 1 (suma h)
+\item Planificación del proyecto (40 h):
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Realizar la arquitectura general del proyecto (15 h).
+	\item Realizar el plan del proyecto (25 h).
 	\end{enumerate}
-\item Grupo de tareas 2 (suma h)
+\item Investigación (50 h):
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Estudiar el funcionamiento del ESP32 y los sensores (20 h).
+	\item Investigación sobre hidroponía y requerimientos del sistema físico (30 h).
 	\end{enumerate}
-\item Grupo de tareas 3 (suma h)
+\item Diseño del sistema (110 h):
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\item Tarea 4 (tantas h)
-	\item Tarea 5 (tantas h)
+	\item Diseño de la arquitectura general del sistema (30 h).
+	\item Diseño del sistema físico de hidroponía (20 h).
+	\item Diseño de la base de datos (20 h).
+	\item Diseño del servidor central (20 h).
+	\item Diseño del prototipo del módulo de control (20 h).
+	\end{enumerate}
+\item Desarrollo del sistema hidropónico (80 h):
+	\begin{enumerate}
+	\item Diseño y construcción del sistema físico de hidroponía (40 h).
+	\item Instalación de los componentes del sistema de riego, iluminación y ventilación (20 h).
+	\item Pruebas iniciales del sistema hidropónico (20 h).
+	\end{enumerate}
+\item Desarrollo del hardware (70 h):
+	\begin{enumerate}
+	\item Diseño del circuito y simulación (15 h).
+	\item Diseño de la PCB (15 h).
+	\item Fabricación de la PCB (5 h).
+	\item Inspección de la PCB (5 h).
+	\item Montaje de componentes en la PCB (15 h).
+	\item Pruebas de validación del hardware (15 h).
+	\end{enumerate}
+\item Desarrollo del firmware (145 h):
+	\begin{enumerate}
+	\item Desarrollo del software para control de riego (15 h).
+	\item Desarrollo del software para control de iluminación (15 h).
+	\item Desarrollo del software para control de ventilación (15 h).
+	\item Desarrollo de \textit{drivers} para los dispositivos implicados (20 h).
+	\item Implementación del sistema operativo para el módulo de control (20 h).
+	\item Desarrollo del servidor embebido en el módulo de control (40 h).
+	\item Implementación del protocolo de comunicación HTTP o MQTT (20 h).
+	\end{enumerate}
+\item Desarrollo de la interfaz de usuario (60 h):
+	\begin{enumerate}
+	\item Maquetado de la interfaz de usuario para el control del sistema (20 h).
+	\item Desarrollo de la interfaz gráfica de usuario (GUI) para dispositivos móviles y/o web (25 h).
+	\item Pruebas de usabilidad y ajustes en la interfaz (15 h).
+	\end{enumerate}
+\item Desarrollo del servidor central (40 h):
+	\begin{enumerate}
+	\item Desarrollo del software del servidor central (20 h).
+	\item Integración del servidor con los módulos de control (10 h).
+	\item Desarrollo e integración del servicio de alarmas (10 h).
+	\end{enumerate}
+\item Integración y pruebas (80 h):
+	\begin{enumerate}
+	\item Integración de módulos en el prototipo funcional (30 h).
+	\item Pruebas de integración y rendimiento del sistema (20 h).
+	\item Pruebas de comunicación y control centralizado (15 h).
+	\item Validación final del sistema completo (15 h).
+	\end{enumerate}
+\item Documentación y entrega (70 h):
+	\begin{enumerate}
+	\item Elaboración de documentación técnica del sistema (30 h).
+	\item Preparación del manual de usuario (20 h).
+	\item Presentación de resultados y entrega del proyecto (20 h).
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: tantas.
+Cantidad total de horas: 745 h.
 
-\textbf{¡Importante!:} la unidad de horas es h y va separada por espacio del número. Es incorrecto escribir ``23hs".
+%\textbf{¡Importante!:} la unidad de horas es h y va separada por espacio del número. Es incorrecto escribir ``23hs".
 
-\textbf{Se recomienda que no haya ninguna tarea que lleve más de 40 h.} De ser así se recomienda dividirla en tareas de menor duración.
+%\textbf{Se recomienda que no haya ninguna tarea que lleve más de 40 h.} De ser así se recomienda dividirla en tareas de menor duración.
 
-\end{consigna}
+%\end{consigna}
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
