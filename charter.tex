@@ -29,7 +29,7 @@
  
 \fechaINICIO{20 de agosto de 2024}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{8 de octubre de 2024} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2024}	%Fecha de defensa pública del trabajo final
+\fechaFINALTrabajo{julio de 2025}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -61,6 +61,10 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 1      & Se completa hasta el punto 5 inclusive                & {3} de {septiembre} de 2024 \\ \hline
 2      & Se completa hasta el punto 9 inclusive					& {10} de {septiembre} de 2024 \\
 \hline
+3      & Se completa hasta el punto 12 inclusive					& {17} de {septiembre} de 2024 \\
+\hline
+4      & Se completa hasta el punto 15 inclusive					& {24} de {septiembre} de 2024 \\
+\hline
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & {día} de {mes} de 202X \\ \hline
@@ -85,7 +89,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en la implementación de un prototipo de un sistema de monitoreo y gestión de cultivo hidropónico. El trabajo tendrá un presupuesto preliminar estimado de 745 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en la implementación de un prototipo de un sistema de monitoreo y gestión de cultivo hidropónico. El trabajo tendrá un presupuesto preliminar estimado de 644 horas y un costo estimado de \$ 8 523 913, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -160,7 +164,8 @@ Los sistemas hidropónicos actuales dependen del usuario para medir de forma man
 \label{fig:d_bloques}
 \end{figure}
 
-En la figura \ref{fig:d_bloques} se presenta el diagrama en bloques de la solución propuesta. Este sistema permitirá controlar el riego, la iluminación y la ventilación de las raíces, al tiempo que monitoreará otras variables críticas para su operación. Se diseñará para un cultivo urbano pequeño, ubicado en el interior de una vivienda, pero será fácilmente escalable, ya que se podrá ampliar simplemente multiplicando el módulo completo. El servidor central será diseñado para gestionar y centralizar la información de una gran cantidad de módulos, de modo que el usuario solo necesite registrar el suyo en el sistema.
+En la figura \ref{fig:d_bloques} se presenta el diagrama en bloques de la solución propuesta. Este sistema permitirá controlar el riego, la iluminación y la ventilación de las raíces, al tiempo que monitoreará otras variables críticas para su operación. Se diseñará para un cultivo urbano pequeño, ubicado en el interior de una vivienda, pero será fácilmente escalable, ya que se podrá ampliar simplemente multiplicando el módulo completo. 
+%El servidor central será diseñado para gestionar y centralizar la información de una gran cantidad de módulos, de modo que el usuario solo necesite registrar el suyo en el sistema.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
@@ -209,9 +214,10 @@ El proyecto incluye:
 \begin{itemize}
 	\item Desarrollo del prototipo funcional y escalable.
 		\begin{itemize}
-		\item Diseño de un sistema automatizado para el control del riego, la iluminación y la ventilación en cultivos hidropónicos verticales.
+		\item Diseño de un sistema automatizado para el control del riego, la iluminación y la oxigenación en cultivos hidropónicos verticales.
 		\item Desarrollo del firmware para el microcontrolador.
-		\item Desarrollo de una aplicación REST API (incluida la base de datos) y una PWA (Progressive Web App) como interfaz de usuario.
+		%\item Desarrollo de una aplicación REST API (incluida la base de datos) y una PWA (Progressive Web App) como interfaz de usuario.
+		\item Desarrollo de una aplicación web como interfaz de usuario.
 		\end{itemize}
 	\item Pruebas y validación del prototipo.
 		\begin{itemize}
@@ -231,6 +237,7 @@ El proyecto no incluye:
 	\item Producción a gran escala del sistema automatizado, más allá del prototipo desarrollado.
 	\item Desarrollo de sistemas de seguridad adicionales más allá de lo necesario para el prototipo.
 	\item Implementación de tecnología para la optimización del consumo energético para producción a gran escala.
+	\item Desarrollo de una aplicación REST API (incluida la base de datos).
 	\item Procesamiento estadístico de los datos almacenados.
 	
 \end{itemize}
@@ -267,17 +274,23 @@ El proyecto no incluye:
 
 \begin{enumerate}
 	\item \textbf{Requerimientos funcionales:}
-		\begin{enumerate}
-			\item El prototipo debe permitir el control automático del riego, iluminación y ventilación del cultivo (prioridad alta).
-			\item El sistema debe monitorear variables ambientales relevantes, como temperatura, humedad del sustrato, nivel, conductividad eléctrica y pH de la solución nutritiva (prioridad alta).
-			\item El usuario debe poder activar o desactivar manualmente las secuencias de riego (prioridad media).
-			\item El servidor debe generar alarmas y notificaciones en caso de condiciones anómalas, como fallos de sensores, nivel crítico de solución nutritiva, etc. (prioridad alta).
-		\item El sistema debe ser escalable, permitiendo la conexión y control de múltiples módulos hidropónicos (prioridad media).
-		\item El \textit{firmware} debe incluir un servidor embebido para la gestión local y remota de los parámetros del sistema (prioridad alta).
-		\item El usuario debe poder configurar el sistema mediante una interfaz gráfica amigable, accesible desde un dispositivo móvil (prioridad alta).
-		\item El producto debe permitir la programación de secuencias de riego en base a fecha, hora y duración o humedad del sustrato (prioridad alta).
-		\item El servidor central debe almacenar y procesar datos de todos los módulos conectados, permitiendo la trazabilidad y análisis histórico (prioridad media).
-		\end{enumerate}
+\begin{enumerate}
+    \item El prototipo debe permitir el control automático del riego, iluminación y oxigenación del cultivo, garantizando que el tiempo de respuesta para cambios en el ambiente no supere los 5 segundos (prioridad alta).
+    
+    \item El sistema debe monitorear variables ambientales relevantes como temperatura (rango de - 15 a 50 °C, precisión de ±1 °C), humedad del sustrato (rango de 0\% a 100\%, precisión de ±3\%), nivel de la solución nutritiva (mínimo 3/4 de la altura total del contenedor), conductividad eléctrica (rango de 1 a 4 mS/cm, precisión de ±0.1 mS/cm), y pH (rango de 5.5 a 7.5, precisión de ±0.1) (prioridad alta).
+    
+    \item El usuario debe poder activar o desactivar manualmente las secuencias de riego mediante la interfaz gráfica, con un tiempo de respuesta menor a 2 segundos (prioridad media).
+     
+    %\item El sistema debe ser escalable, permitiendo la conexión y control de hasta 50 módulos hidropónicos sin degradar el tiempo de respuesta, que deberá mantenerse inferior a 10 segundos para cada módulo adicional (prioridad media).
+    
+    \item El firmware debe incluir un servidor embebido para la gestión local y remota de los parámetros del sistema, con disponibilidad 24/7 (prioridad alta).
+    
+    \item El usuario debe poder configurar el sistema mediante una interfaz gráfica amigable, accesible desde un dispositivo móvil (Android/iOS) a través de la red Wi-Fi, con tiempos de carga inferiores a 5 segundos (prioridad alta).
+    
+    \item El producto debe permitir la programación de secuencias de riego en base a fecha, hora y duración o humedad del sustrato, con una precisión de ±1 minuto en la ejecución de las secuencias (prioridad alta).
+    
+\end{enumerate}
+
 	\item \textbf{Requerimientos de documentación:}
 		\begin{enumerate}
 			\item Se debe proporcionar un manual de usuario detallado con instrucciones de configuración y operación del sistema (prioridad baja).
@@ -288,14 +301,14 @@ El proyecto no incluye:
 	\begin{enumerate}
 	\item El sistema debe ser sometido a pruebas de funcionalidad completas para verificar el correcto funcionamiento de todas las características (prioridad alta).
 	\item Se deben realizar pruebas de estrés para garantizar la estabilidad del sistema bajo condiciones extremas de operación (prioridad media).
-	\item El \textit{firmware} debe pasar por pruebas de validación de comunicación de red (HTTP o MQTT) (prioridad alta).
+	\item El firmware debe pasar por pruebas de validación de comunicación de red (HTTP o MQTT) (prioridad alta).
 	\item El hardware debe ser testeado para asegurar su resistencia y fiabilidad en ambientes urbanos interiores y exteriores (prioridad alta).
 	\end{enumerate}
 	\item \textbf{Requerimientos de la interfaz de usuario:}
 	\begin{enumerate}
 	\item La interfaz de usuario debe ser intuitiva y fácil de usar, con menús claros para la configuración de parámetros del control del cultivo (prioridad alta).
 	\item La interfaz debe mostrar el estado en tiempo real de todas las variables monitoreadas (temperatura, humedad, nivel de agua, etc.) (prioridad alta).
-	\item La interfaz debe permitir el registro y gestión de múltiples módulos hidropónicos (prioridad baja).
+	%\item La interfaz debe permitir el registro y gestión de múltiples módulos hidropónicos (prioridad baja).
 	\item La interfaz debe ser responsiva y compatible con dispositivos móviles modernos (prioridad alta).
 	\end{enumerate}
 	\item \textbf{Requerimientos interoperabilidad:}
@@ -310,10 +323,13 @@ El proyecto no incluye:
 	\end{enumerate}
 	\item \textbf{Requerimientos opcionales:}
 	\begin{enumerate}
+	    \item El servidor podría generar alarmas y notificaciones en caso de condiciones anómalas, como fallos de sensores o nivel crítico de solución nutritiva (menor al 10\% del volumen total), con un tiempo de notificación menor a 1 minuto desde la detección.
+       \item El servidor central podría almacenar y procesar los datos de todos los módulos conectados, permitiendo trazabilidad y análisis histórico.
 	\item El firmware podría permitir la integración con plataformas de automatización del hogar (e.g., Home Assistant, Google Home).
 	\item El sistema podría ser capaz de exportar datos en formatos compatibles con aplicaciones de análisis de datos (CSV, JSON).
 	\item El sistema podría incluir una funcionalidad de análisis predictivo para optimizar las secuencias de riego basadas en datos históricos.
 	\item La interfaz podría incluir un módulo de visualización de datos avanzado para el análisis gráfico de la eficiencia del cultivo.
+	\item Podría añadirse un control PID de temperatura de la solución nutritiva.
 	\end{enumerate}
 \end{enumerate}
 
@@ -466,19 +482,18 @@ A continuación se realiza el desglose del proyecto en tareas:
 	\item Estudiar el funcionamiento del ESP32 y los sensores (20 h).
 	\item Investigación sobre hidroponía y requerimientos del sistema físico (30 h).
 	\end{enumerate}
-\item Diseño del sistema (110 h):
+\item Diseño del sistema (50 h):
 	\begin{enumerate}
 	\item Diseño de la arquitectura general del sistema (30 h).
-	\item Diseño del sistema físico de hidroponía (20 h).
-	\item Diseño de la base de datos (20 h).
-	\item Diseño del servidor central (20 h).
-	\item Diseño del prototipo del módulo de control (20 h).
+	%\item Diseño de la base de datos (8 h).
+	%\item Diseño del servidor central (20 h).
+	\item Diseño del módulo de control del prototipo (20 h).
 	\end{enumerate}
-\item Desarrollo del sistema hidropónico (80 h):
+\item Desarrollo del sistema hidropónico (30 h):
 	\begin{enumerate}
-	\item Diseño y construcción del sistema físico de hidroponía (40 h).
-	\item Instalación de los componentes del sistema de riego, iluminación y ventilación (20 h).
-	\item Pruebas iniciales del sistema hidropónico (20 h).
+	\item Adquisición de un sistema hidropónico vertical estándar (2 h).
+	\item Instalación de los componentes del sistema de riego, iluminación y oxigenación (20 h).
+	\item Pruebas iniciales del sistema hidropónico (8 h).
 	\end{enumerate}
 \item Desarrollo del hardware (70 h):
 	\begin{enumerate}
@@ -493,24 +508,24 @@ A continuación se realiza el desglose del proyecto en tareas:
 	\begin{enumerate}
 	\item Desarrollo del software para control de riego (15 h).
 	\item Desarrollo del software para control de iluminación (15 h).
-	\item Desarrollo del software para control de ventilación (15 h).
+	\item Desarrollo del software para control de oxigenación (15 h).
 	\item Desarrollo de \textit{drivers} para los dispositivos implicados (20 h).
 	\item Implementación del sistema operativo para el módulo de control (20 h).
 	\item Desarrollo del servidor embebido en el módulo de control (40 h).
 	\item Implementación del protocolo de comunicación HTTP o MQTT (20 h).
 	\end{enumerate}
-\item Desarrollo de la interfaz de usuario (60 h):
+\item Desarrollo de la interfaz de usuario (39 h):
 	\begin{enumerate}
-	\item Maquetado de la interfaz de usuario para el control del sistema (20 h).
-	\item Desarrollo de la interfaz gráfica de usuario (GUI) para dispositivos móviles y/o web (25 h).
+	\item Maquetado de la interfaz de usuario minimalista para el control del sistema (8 h).
+	\item Desarrollo de la interfaz gráfica de usuario (GUI) minimalista para dispositivos móviles y/o web (16 h).
 	\item Pruebas de usabilidad y ajustes en la interfaz (15 h).
 	\end{enumerate}
-\item Desarrollo del servidor central (40 h):
-	\begin{enumerate}
-	\item Desarrollo del software del servidor central (20 h).
-	\item Integración del servidor con los módulos de control (10 h).
-	\item Desarrollo e integración del servicio de alarmas (10 h).
-	\end{enumerate}
+%\item Desarrollo del servidor central (40 h):
+	%\begin{enumerate}
+	%\item Desarrollo del software del servidor central (20 h).
+	%\item Integración del servidor con los módulos de control (10 h).
+	%\item Desarrollo e integración del servicio de alarmas (10 h).
+	%\end{enumerate}
 \item Integración y pruebas (80 h):
 	\begin{enumerate}
 	\item Integración de módulos en el prototipo funcional (30 h).
@@ -518,15 +533,16 @@ A continuación se realiza el desglose del proyecto en tareas:
 	\item Pruebas de comunicación y control centralizado (15 h).
 	\item Validación final del sistema completo (15 h).
 	\end{enumerate}
-\item Documentación y entrega (70 h):
+\item Documentación y entrega (140 h):
 	\begin{enumerate}
-	\item Elaboración de documentación técnica del sistema (30 h).
-	\item Preparación del manual de usuario (20 h).
+	\item Elaboración de documentación técnica del sistema (40 h).
+	\item Elaboración de memoria técnica (40 h).
+	\item Preparación del manual de usuario (40 h).
 	\item Presentación de resultados y entrega del proyecto (20 h).
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: 745 h.
+Cantidad total de horas: 644 h.
 
 %\textbf{¡Importante!:} la unidad de horas es h y va separada por espacio del número. Es incorrecto escribir ``23hs".
 
@@ -537,130 +553,148 @@ Cantidad total de horas: 745 h.
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior.
+%\begin{consigna}{red}
+%Armar el AoN a partir del WBS definido en la etapa anterior.
 
-Una herramienta simple para desarrollar los diagramas es el Draw.io (\url{https://app.diagrams.net/}).
-\href{https://app.diagrams.net}{Draw.io}
+%Una herramienta simple para desarrollar los diagramas es el Draw.io (\url{https://app.diagrams.net/}).
+%\href{https://app.diagrams.net}{Draw.io}
 
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
+\includegraphics[width=1.0\textwidth]{./Figuras/AoN.pdf}
 \caption{Diagrama de \textit{Activity on Node}.}
 \label{fig:AoN}
 \end{figure}
 
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semi críticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color.
+%Indicar claramente en qué unidades están expresados los tiempos.
+%De ser necesario indicar los caminos semi críticos y analizar sus tiempos mediante un cuadro.
+%Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color.
 
-\end{consigna}
+%\end{consigna}
 
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\begin{consigna}{red}
-Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
+Para el diagrama \textit{Gantt} se consideró una dedicación parcial de entre 3 y 4 horas todos los días
+hábiles.
 
-\begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-\end{itemize}
+%\begin{consigna}{red}
+%Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
 
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
+%\begin{itemize}
+%\item Planner
+%\item GanttProject
+%\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
+%\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
+%\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
+%\end{itemize}
 
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
+%Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
+%Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
 
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. 
-En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
+%Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
+%Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
+%Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
 
-Las fechas pueden ser calculadas utilizando alguna de las herramientas antes citadas. Sin embargo, el siguiente ejemplo
-fue elaborado utilizando 
-\href{https://docs.google.com/spreadsheets/d/1fBz8NhSpc4tkkhz3KjJCbh1nR_ltDkfEcZi4tZXduqs}{esta hoja de cálculo}.
+%En la figura \ref{fig:diagGantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. 
+%En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
 
-Es importante destacar que el ancho del diagrama estará dado por la longitud del texto utilizado para las tareas 
-(Ejemplo: tarea 1, tarea 2, etcétera) y el valor \textit{x unit}. Para mejorar la apariencia del diagrama, es necesario
-ajustar este valor y, quizás, acortar los nombres de las tareas.
+%Las fechas pueden ser calculadas utilizando alguna de las herramientas antes citadas. Sin embargo, el siguiente ejemplo
+%fue elaborado utilizando 
+%\href{https://docs.google.com/spreadsheets/d/1fBz8NhSpc4tkkhz3KjJCbh1nR_ltDkfEcZi4tZXduqs}{esta hoja de cálculo}.
 
-\begin{figure}[htpb]
-  \begin{center}
-    \begin{ganttchart}[
-      time slot unit=day,
-      time slot format=isodate,
-      x unit=0.038cm,
-      y unit title=0.7cm,
-      y unit chart=0.6cm,
-      milestone/.append style={xscale=4}
-      ]{2021-03-05}{2021-12-16}
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{year} \\
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{month} \\
-      \ganttgroup{Duración Total}{2021-03-05}{2021-12-16} \\
+%Es importante destacar que el ancho del diagrama estará dado por la longitud del texto utilizado para las tareas 
+%(Ejemplo: tarea 1, tarea 2, etcétera) y el valor \textit{x unit}. Para mejorar la apariencia del diagrama, es necesario
+%ajustar este valor y, quizás, acortar los nombres de las tareas.
+
+%\begin{figure}[htpb]
+%  \begin{center}
+%    \begin{ganttchart}[
+%      time slot unit=day,
+%      time slot format=isodate,
+%      x unit=0.038cm,
+%      y unit title=0.7cm,
+%      y unit chart=0.6cm,
+%      milestone/.append style={xscale=4}
+%      ]{2021-03-05}{2021-12-16}
+%      \gantttitlecalendar*{2021-03-05}{2021-12-16}{year} \\
+%      \gantttitlecalendar*{2021-03-05}{2021-12-16}{month} \\
+%      \ganttgroup{Duración Total}{2021-03-05}{2021-12-16} \\
       %%%%%%%%%%%%%%%%%Organización
-      \ganttgroup{Organización}{2021-03-05}{2021-04-16} \\
-      \ganttbar{Planificación del proyecto}{2021-03-05}{2021-04-15} \\
-      %%%%%%%%%%%%%%%%%Ejecución
-      \ganttgroup{Ejecución}{2021-04-16}{2021-10-21} \\
-      \ganttbar{Tarea 1}{2021-04-16}{2021-04-29} \\
-      \ganttbar{Tarea 2}{2021-04-30}{2021-05-13} \\
-      \ganttbar{Tarea 3}{2021-05-14}{2021-05-27} \\
-      \ganttbar{Tarea 4}{2021-05-28}{2021-07-12} \\
-      \ganttbar{Tarea 5}{2021-07-13}{2021-08-09} \\
-      \ganttbar{Tarea 6}{2021-08-10}{2021-09-23} \\
-      \ganttbar{Tarea 7}{2021-09-24}{2021-09-30} \\
-      \ganttbar{Tarea 8}{2021-10-01}{2021-10-14} \\
-      \ganttbar{Tarea 9}{2021-10-15}{2021-10-21} \\
+%      \ganttgroup{Organización}{2021-03-05}{2021-04-16} \\
+%      \ganttbar{Planificación del proyecto}{2021-03-05}{2021-04-15} \\
+%      %%%%%%%%%%%%%%%%%Ejecución
+%      \ganttgroup{Ejecución}{2021-04-16}{2021-10-21} \\
+%      \ganttbar{Tarea 1}{2021-04-16}{2021-04-29} \\
+%      \ganttbar{Tarea 2}{2021-04-30}{2021-05-13} \\
+%      \ganttbar{Tarea 3}{2021-05-14}{2021-05-27} \\
+%      \ganttbar{Tarea 4}{2021-05-28}{2021-07-12} \\
+%      \ganttbar{Tarea 5}{2021-07-13}{2021-08-09} \\
+%      \ganttbar{Tarea 6}{2021-08-10}{2021-09-23} \\
+%      \ganttbar{Tarea 7}{2021-09-24}{2021-09-30} \\
+%      \ganttbar{Tarea 8}{2021-10-01}{2021-10-14} \\
+%      \ganttbar{Tarea 9}{2021-10-15}{2021-10-21} \\
       % %%%%%%%%%%%%%%%%%Finalización
-      \ganttgroup{Finalización}{2021-10-22}{2021-12-16} \\
-      \ganttbar{Memoria v1}{2021-10-22}{2021-11-04} \\
-      \ganttbar{Memoria v2}{2021-11-05}{2021-11-18} \\
-      \ganttbar{Memoria final}{2021-11-19}{2021-12-02} \\
+%      \ganttgroup{Finalización}{2021-10-22}{2021-12-16} \\
+%      \ganttbar{Memoria v1}{2021-10-22}{2021-11-04} \\
+%      \ganttbar{Memoria v2}{2021-11-05}{2021-11-18} \\
+%      \ganttbar{Memoria final}{2021-11-19}{2021-12-02} \\
+%
       % La fecha del siguiente milestone es la fecha en que terminamos la memoria
-      \ganttmilestone{Enviar memoria al director}{2021-12-02} \\
-      \ganttbar{Elaborar la presentación}{2021-12-03}{2021-12-16} \\
-      \ganttmilestone{Ensayo de la presentación}{2021-12-16} \\
+%      \ganttmilestone{Enviar memoria al director}{2021-12-02} \\
+%      \ganttbar{Elaborar la presentación}{2021-12-03}{2021-12-16} \\
+%      \ganttmilestone{Ensayo de la presentación}{2021-12-16} \\
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \end{ganttchart}
-  \end{center}
-  \caption{Diagrama de gantt de ejemplo}
-  \label{fig:gantt}
-\end{figure}
+%    \end{ganttchart}
+%  \end{center}
+%  \caption{Diagrama de gantt de ejemplo}
+%  \label{fig:gantt}
+%\end{figure}
 
-
-\begin{landscape}
 \begin{figure}[htpb]
 \centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
-\caption{Ejemplo de diagrama de Gantt (apaisado).} %Modificar este título acorde.
+%\includegraphics[height=.85\textheight]{./Figuras/salida.pdf}
+%\includegraphics[width=\linewidth]{./Figuras/salida.pdf}
+%\includegraphics[width=\linewidth, height=0.95\linewidth]{./Figuras/salida.pdf}
+\includegraphics[trim=0 300 0 0, clip,width=\linewidth, height=0.97\textheight]{./Figuras/tareas.pdf}
+\caption{Detalle de las tareas del diagrama \textit{Gantt}.} %Modificar este título acorde.
 \label{fig:diagGantt}
 \end{figure}
 
+\begin{landscape}
+
+\begin{figure}[htpb]
+\centering
+%\includegraphics[trim=0 0 0 0, clip, width=\linewidth, height=0.97\textheight, angle=270]{./Figuras/salida.pdf}
+\includegraphics[angle=270, width=1.5\textheight]{./Figuras/salida.pdf}
+\caption{Diagrama \textit{Gantt} desarrollado en Planner.} %Modificar este título acorde.
+\label{fig:diagGantt}
+\end{figure}
+
+
 \end{landscape}
 
-\end{consigna}
+%\end{consigna}
 
 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
+%\begin{consigna}{red}
+%Si el proyecto es complejo entonces separarlo en partes:
+%\begin{itemize}
+%	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
+%	\item El desglose detallado del subtotal de cada una de las áreas.
+%\end{itemize}
 
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
+%IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
 
-Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si se usa moneda extranjera (USD, EUR, etc). Si es en moneda extranjera se debe indicar la tasa de conversión respecto a la moneda local en una fecha dada.
+%Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si se usa moneda extranjera (USD, EUR, etc). Si es en moneda extranjera se debe indicar la tasa de conversión respecto a la moneda local en una fecha dada.
 
-\end{consigna}
+%\end{consigna}
+
+En el siguiente cuadro se muestra el detalle de los costos del proyecto expresados en pesos argentinos (ARS).
 
 \begin{table}[htpb]
 \centering
@@ -673,24 +707,69 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+ESP32S WROOM &
+  \multicolumn{1}{c|}{01 u.} & 
+  \multicolumn{1}{c|}{10 692} &
+  \multicolumn{1}{c|}{10 692} \\ \hline
+  
+  Módulo sensor de luz con LDR &
+  \multicolumn{1}{c|}{01 u.} & 
+  \multicolumn{1}{c|}{2052} &
+  \multicolumn{1}{c|}{2052} \\ \hline 
+  
+   Torre hidropónica vertical 22 macetas + bomba&
+  \multicolumn{1}{c|}{01 u.} & 
+  \multicolumn{1}{c|}{240 000} &
+  \multicolumn{1}{c|}{240 000} \\ \hline
+  
+     Lámpara cultivo indoor Amnesia Cob 400w &
+  \multicolumn{1}{c|}{01 u.} & 
+  \multicolumn{1}{c|}{140 000} &
+  \multicolumn{1}{c|}{140 000} \\ \hline
+  
+    Sensor de pH-4502c &
+  \multicolumn{1}{c|}{01 u.} & 
+  \multicolumn{1}{c|}{92 500} &
+  \multicolumn{1}{c|}{92 500} \\ \hline
+
+  DS18B20 &
+  \multicolumn{1}{c|}{01 u.} & 
+  \multicolumn{1}{c|}{2400} &
+  \multicolumn{1}{c|}{2400} \\ \hline  
+  
+ Sensor de humedad C.&
+  \multicolumn{1}{c|}{01 u.} &
+  \multicolumn{1}{c|}{4500} &
+  \multicolumn{1}{c|}{4500} \\ \hline
+  
+   Fuente de alimentación 5 VDC 2 A&
+  \multicolumn{1}{c|}{01 u.} &
+  \multicolumn{1}{c|}{7000} &
+  \multicolumn{1}{c|}{7000} \\ \hline
+  
+     Cooler fan 220 V&
+  \multicolumn{1}{c|}{01 u.} &
+  \multicolumn{1}{c|}{10 000} &
+  \multicolumn{1}{c|}{10 000} \\ \hline 
+  
+Módulo rele relay de 4 canales 5 V 10 A&
+  \multicolumn{1}{c|}{01 u.} &
+  \multicolumn{1}{c|}{8500} &
+  \multicolumn{1}{c|}{8500} \\ \hline
+  
+  Módulo sensor de calidad de agua TDS + sonda analógica&
+  \multicolumn{1}{c|}{01 u.} &
+  \multicolumn{1}{c|}{30 000} &
+  \multicolumn{1}{c|}{30 000} \\ \hline 
+  
+  Servicios profesionales &
+  \multicolumn{1}{c|}{644 u.} & 
+  \multicolumn{1}{c|}{12 000} &
+  \multicolumn{1}{c|}{7 728 000} \\ \hline
+  
+
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{8 275 644} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -698,22 +777,13 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+\multicolumn{1}{|c|}{3 \% de los costos directos} &
+   01 u. & 248 269 & 248 269 \\ \hline
+
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{r|}{248 269} \\ \hline
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} &
+\multicolumn{3}{|c|}{TOTAL} & 8 523 913
    \\ \hline
 \end{tabularx}%
 \end{table}
@@ -722,35 +792,129 @@ Descripción &
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
+%\begin{consigna}{red}
+%a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
  
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
-\begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
-\end{itemize}   
+%Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma %negativa)
+%\begin{itemize}
+%	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
+%	Justificar el motivo por el cual se asigna determinado número de severidad (S).
+%	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 %al 10).\\
+%	Justificar el motivo por el cual se asigna determinado número de (O). 
+%\end{itemize}   
 
-Riesgo 2:
+%Riesgo 2:
+%\begin{itemize}
+%	\item Severidad (S): X.\\
+%	Justificación...
+%	\item Ocurrencia (O): Y.\\
+%	Justificación...
+%\end{itemize}
+
+%Riesgo 3:
+%\begin{itemize}
+%	\item Severidad (S):  X.\\
+%	Justificación...
+%	\item Ocurrencia (O): Y.\\
+%	Justificación...
+%\end{itemize}
+
+
+%b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+
+%\begin{table}[htpb]
+%\centering
+%\begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
+%\hline
+%\rowcolor[HTML]{C0C0C0} 
+%Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
+%       &   &   &     &    &    &      \\ \hline
+%       &   &   &     &    &    &      \\ \hline
+%       &   &   &     &    &    &      \\ \hline
+%       &   &   &     &    &    &      \\ \hline
+%       &   &   &     &    &    &      \\ \hline
+%\end{tabularx}%
+%\end{table}
+
+%Criterio adoptado: 
+
+%Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+
+%Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
+
+%c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
+ 
+%Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+%  Nueva asignación de S y O, con su respectiva justificación:
+%  \begin{itemize}
+%	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
+%         Justificar el motivo por el cual se asigna determinado número de severidad (S).
+%	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
+%         Justificar el motivo por el cual se asigna determinado número de (O).
+%	\end{itemize}
+
+%Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+ 
+%Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+
+%\end{consigna}
+
+
+
+
+A continuación se detallan cinco posibles riesgos inherentes al proyecto. Los mismos son
+evaluados según su grado de severidad y su probabilidad de ocurrencia tomando valores de
+1 a 10.
+
+\textbf{Riesgo 1: retraso en la entrega de componentes electrónicos}
 \begin{itemize}
-	\item Severidad (S): X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+    \item Severidad (S): 6.\\
+    Justificación: un retraso en la llegada de componentes críticos impactaría directamente en los tiempos de ensamblaje y pruebas del prototipo, lo cual es crucial en un proyecto manejado por una sola persona.
+    \item Probabilidad de ocurrencia (O): 7.\\
+    Justificación: como emprendedor individual, la adquisición de componentes depende de proveedores externos y no siempre se tiene control sobre los tiempos de entrega, especialmente en compras internacionales o con stock limitado.
 \end{itemize}
 
-Riesgo 3:
+\textbf{Riesgo 2: dificultades en la integración del hardware y software}
 \begin{itemize}
-	\item Severidad (S):  X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+    \item Severidad (S): 8.\\
+    Justificación: problemas en la integración entre sensores, actuadores y el software de control podrían detener el desarrollo, ya que no hay un equipo de soporte técnico, lo que incrementa la carga sobre el emprendedor.
+    \item Probabilidad de ocurrencia (O): 6.\\
+    Justificación: la falta de experiencia o el tiempo limitado para la depuración y pruebas aumentan la probabilidad de errores durante la integración, un desafío común en proyectos individuales.
 \end{itemize}
 
+\textbf{Riesgo 3: cambios en las especificaciones del prototipo durante el desarrollo}
+\begin{itemize}
+    \item Severidad (S): 7.\\
+    Justificación: cambiar especificaciones a mitad del desarrollo puede implicar rehacer partes del trabajo ya realizado, consumiendo tiempo y recursos limitados.
+    \item Probabilidad de ocurrencia (O): 5.\\
+    Justificación: a medida que se avanza, es común que surjan nuevas ideas o mejoras, lo que puede llevar a redefinir algunos aspectos del prototipo.
+\end{itemize}
 
-b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+\textbf{Riesgo 4: componentes defectuosos}
+\begin{itemize}
+    \item Severidad (S): 9.\\
+    Justificación: los componentes defectuosos pueden resultar en mal funcionamiento del prototipo, lo que podría requerir revisiones extensivas y reemplazos, afectando el desarrollo del proyecto.
+    \item Probabilidad de ocurrencia (O): 4.\\
+    Justificación: existe siempre la posibilidad de recibir componentes defectuosos, especialmente si se compra a proveedores no completamente verificados.
+\end{itemize}
+
+\textbf{Riesgo 5: destrucción del prototipo de hardware}
+\begin{itemize}
+    \item Severidad (S): 10.\\
+    Justificación: la destrucción del prototipo debido a fallos eléctricos, errores en el montaje o pruebas inadecuadas podría ser un revés significativo, deteniendo el proyecto hasta que se puedan reparar o reemplazar las piezas dañadas.
+    \item Probabilidad de ocurrencia (O): 3.\\
+    Justificación: si bien no es muy probable, puede suceder en la fase de pruebas si no se toman las precauciones adecuadas o si se desconocen algunas de las limitaciones del hardware.
+\end{itemize}
+
+\textbf{Riesgo 6: redefiniciones por parte del orientador durante las revisiones}
+\begin{itemize}
+    \item Severidad (S): 6.\\
+    Justificación: las redefiniciones pueden requerir cambios en el diseño o en los algoritmos implementados, afectando el progreso y generando retrabajos.
+    \item Probabilidad de ocurrencia (O): 5.\\
+    Justificación: es común que durante las revisiones se sugieran mejoras o ajustes que no se habían contemplado inicialmente.
+\end{itemize}
+
+Tabla de gestión de riesgos: (el RPN se calcula como RPN=SxO)
 
 \begin{table}[htpb]
 \centering
@@ -758,77 +922,282 @@ b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+Retraso en la entrega de componentes electrónicos & 6 & 7 & 42 & 4 & 3 & 12 \\ \hline
+Dificultades en la integración del hardware y software & 8 & 6 & 48 & 5 & 4 & 20 \\ \hline
+Cambios en las especificaciones del prototipo & 7 & 5 & 35 & 4 & 3 & 12 \\ \hline
+Componentes defectuosos & 9 & 4 & 36 & 5 & 3 & 15 \\ \hline
+Destrucción del prototipo de hardware & 10 & 3 & 30 & -& - & - \\ \hline
+Redefiniciones por parte del orientador & 6 & 5 & 30 & - & -& - \\ \hline
 \end{tabularx}%
 \end{table}
 
-Criterio adoptado: 
+Criterio adoptado:
 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 30.
 
-Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
 
-c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
- 
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  \begin{itemize}
-	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
+\textbf{Riesgo 1: retraso en la entrega de componentes electrónicos}
+\begin{itemize}
+	\item Plan de mitigación: para minimizar el impacto de este riesgo, se implementarán las siguientes acciones:
+	\begin{itemize}
+	    \item Considerar proveedores alternativos para los componentes críticos, lo que asegurará la disponibilidad en caso de retrasos con el proveedor principal.
+    	\item Mantener un pequeño stock de los componentes más críticos, de modo que se pueda continuar con el desarrollo sin interrupciones mientras se espera la llegada de nuevos pedidos.
 	\end{itemize}
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+    \item Severidad (S*): 4.\\
+    Justificación: considerar proveedores alternativos y mantener un pequeño stock de componentes críticos reduce la severidad de los retrasos.
+    \item Probabilidad de ocurrencia (O*): 3.\\
+    Justificación: planificar compras con mayor anticipación y diversificar fuentes disminuye la probabilidad de ocurrencia.
+\end{itemize}
 
-\end{consigna}
+\textbf{Riesgo 2: dificultades en la integración del hardware y software}
+\begin{itemize}
+	\item Plan de mitigación: para mitigar las dificultades en la integración, se adoptarán las siguientes medidas:
+	\begin{itemize}
+	    \item Dividir la integración en etapas claramente definidas y realizar pruebas incrementales después de cada fase. Esto permitirá identificar errores de manera temprana, antes de que afecten el proyecto en su conjunto.
+    	\item Realizar una planificación detallada de la integración, que incluya tiempo específico para pruebas y revisiones técnicas, así como asegurar que el desarrollador conozca bien la documentación técnica de los componentes antes de iniciar la integración.
+	\end{itemize}
+    \item Severidad (S*): 5.\\
+    Justificación: dividir la integración en etapas y realizar pruebas incrementales reduce la severidad de los problemas al identificar errores tempranamente.
+    \item Probabilidad de ocurrencia (O*): 4.\\
+    Justificación: invertir tiempo en la fase de diseño y estudiar bien la documentación técnica de los componentes antes de integrarlos reduce la probabilidad de fallos.
+\end{itemize}
+
+\textbf{Riesgo 3: cambios en las especificaciones del prototipo durante el desarrollo}
+\begin{itemize}
+	\item Plan de mitigación: para mitigar el impacto de cambios en las especificaciones durante el desarrollo, se adoptarán las siguientes medidas:
+	\begin{itemize}
+		\item Establecer revisiones periódicas con el cliente o las partes interesadas para anticipar posibles cambios y ajustar el desarrollo en las fases iniciales.
+		\item Mantener una flexibilidad en el diseño del prototipo, de modo que se puedan implementar modificaciones sin afectar de manera significativa los plazos o los costos.
+		\item Documentar detalladamente los requisitos desde el inicio, creando un marco claro que reduzca la probabilidad de que se soliciten cambios importantes durante las etapas avanzadas del desarrollo.
+	\end{itemize}
+    \item Severidad (S*): 4.\\
+    Justificación: la planificación de revisiones frecuentes y la flexibilidad en el diseño permiten adaptarse de manera más eficiente a los cambios, lo que reduce la severidad de su impacto en el cronograma o el presupuesto.
+    \item Probabilidad de ocurrencia (O*): 3.\\
+    Justificación: documentar de manera clara y detallada los requisitos desde el comienzo y mantener una comunicación fluida con el cliente durante todo el proceso disminuye la probabilidad de que surjan cambios significativos en etapas tardías.
+\end{itemize}
+
+\textbf{Riesgo 4: componentes defectuosos}
+\begin{itemize}
+	\item Plan de mitigación: para mitigar el riesgo de recibir componentes defectuosos, se implementarán las siguientes acciones:
+	\begin{itemize}
+		\item Inspeccionar y verificar la calidad de los componentes al momento de su recepción, realizando pruebas preliminares de funcionamiento antes de su integración en el sistema.
+		\item Comprar componentes de alta calidad siempre que sea posible dentro del presupuesto, priorizando proveedores con historial comprobado de fiabilidad.
+	\end{itemize}
+    \item Severidad (S*): 5.\\
+    Justificación: inspeccionar los componentes a la llegada y realizar pruebas preliminares de funcionamiento pueden ayudar a detectar defectos antes de la integración.
+    \item Probabilidad de ocurrencia (O*): 3.\\
+    Justificación: comprar componentes de alta calidad a proveedores confiables reduce la probabilidad de recibir componentes defectuosos.
+\end{itemize}
+
 
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-\begin{consigna}{red}
-Elija al menos diez requerimientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
+%\begin{consigna}{red}
+%Elija al menos diez requerimientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
 
-\begin{itemize} 
-\item Req \#1: copiar acá el requerimiento con su correspondiente número.
+%\begin{itemize} 
+%\item Req \#1: copiar acá el requerimiento con su correspondiente número.
 
+%\begin{itemize}
+%	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar.
+%	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar. 
+%\end{itemize}
+
+%\end{itemize}
+
+%Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  
+
+%Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  
+
+%En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
+
+%\end{consigna}
+
+
+A continuación, se describen las acciones de verificación y validación para los requerimientos más importantes del proyecto, con el fin de asegurar su cumplimiento.
 \begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar.
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar. 
+\item Req \#1: el prototipo debe permitir el control automático del riego, iluminación y ventilación del cultivo, garantizando que el tiempo de respuesta para cambios en el ambiente no supere los 5 segundos (1.1).
+\begin{itemize}
+    \item Verificación:
+    \begin{itemize}
+        \item Simulaciones de control automático: se realizarán simulaciones del sistema de control automático para verificar que las acciones de riego, iluminación y ventilación se activen correctamente y dentro del tiempo estipulado de 5 segundos.
+        \item Pruebas de respuesta con sensores: se conectarán los sensores a un banco de pruebas y se monitoreará el tiempo de respuesta mediante un software de captura de datos, asegurando que la reacción se produzca en menos de 5 segundos.
+    \end{itemize}
+    \item Validación:
+    \begin{itemize}
+        \item Demostración al cliente: se realizará una demostración en tiempo real con condiciones controladas donde el cliente pueda observar la respuesta automática del sistema frente a cambios en las variables ambientales.
+        \item Evaluación de rendimiento en situaciones reales: el cliente podrá validar la funcionalidad del sistema al probarlo en condiciones similares a las reales, observando la eficacia del control automático.
+    \end{itemize}
 \end{itemize}
 
+\item Req \#2: el sistema debe monitorear variables ambientales relevantes como temperatura, humedad del sustrato, nivel de la solución nutritiva, conductividad eléctrica y pH (1.2).
+\begin{itemize}
+    \item Verificación:
+    \begin{itemize}
+        \item Calibración y pruebas de sensores: se realizarán calibraciones para cada sensor utilizado y se compararán las lecturas contra estándares conocidos o instrumentos de medición de alta precisión.
+        \item Revisión de datos en tiempo real: se comprobará que los datos se actualicen correctamente en la interfaz y se realicen mediciones precisas dentro de los rangos especificados.
+    \end{itemize}
+    \item Validación:
+    \begin{itemize}
+        \item Comparación de mediciones con el cliente: se mostrarán las mediciones en tiempo real al cliente y se compararán con instrumentos externos de validación para confirmar que las lecturas coinciden y cumplen con los rangos y precisiones requeridas.
+    \end{itemize}
 \end{itemize}
 
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  
+\item Req \#3: el usuario debe poder activar o desactivar manualmente las secuencias de riego mediante la interfaz gráfica, con un tiempo de respuesta menor a 2 segundos (1.3).
+\begin{itemize}
+    \item Verificación:
+    \begin{itemize}
+        \item Pruebas de interacción de la interfaz: se realizarán pruebas de usuario para confirmar que la activación y desactivación de las secuencias de riego se realice en menos de 2 segundos.
+        \item Monitoreo de respuesta del sistema: se medirán los tiempos de respuesta del sistema al recibir comandos desde la interfaz para asegurar que se cumpla con el tiempo especificado.
+    \end{itemize}
+    \item Validación:
+    \begin{itemize}
+        \item Demostración con el cliente: el cliente validará la rapidez de la interfaz probando las funciones de activación y desactivación en una demostración controlada.
+    \end{itemize}
+\end{itemize}
 
-Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  
+Req \#4: el firmware debe incluir un servidor embebido para la gestión local y remota de los parámetros del sistema, con disponibilidad 24/7 (1.4).
+\begin{itemize}
+    \item Verificación:
+    \begin{itemize}
+        \item Pruebas de conectividad y disponibilidad: se probará el acceso al servidor embebido en diversas condiciones de red para asegurar que la gestión remota y local funcione ininterrumpidamente.
+        \item Revisión de logs de funcionamiento: se revisarán los registros de actividad del servidor para confirmar que se mantenga operativo sin interrupciones durante las pruebas de estabilidad.
+    \end{itemize}
+    \item Validación:
+    \begin{itemize}
+        \item Prueba de disponibilidad con el cliente: el cliente verificará el acceso al sistema desde un dispositivo móvil, tanto localmente como de forma remota, durante un período prolongado para validar la estabilidad del servidor.
+    \end{itemize}
+\end{itemize}
 
-En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
+\item Req \#5: el usuario debe poder configurar el sistema mediante una interfaz gráfica amigable, accesible desde un dispositivo móvil (Android/iOS) a través de la red Wi-Fi, con tiempos de carga inferiores a 5 segundos (1.5).
+\begin{itemize}
+    \item Verificación:
+    \begin{itemize}
+        \item Pruebas de usabilidad y tiempo de carga: se realizarán pruebas de rendimiento de la interfaz gráfica para asegurarse de que los tiempos de carga sean inferiores a 5 segundos y que la navegación sea fluida.
+        \item Revisión de compatibilidad móvil: se comprobará la compatibilidad de la interfaz en diversos dispositivos móviles, asegurando que se visualice correctamente y responda a los comandos del usuario.
+    \end{itemize}
+    \item Validación:
+    \begin{itemize}
+        \item Test de uso por el cliente: el cliente probará la interfaz desde su propio dispositivo para validar que la configuración se realice sin problemas y que los tiempos de carga sean aceptables.
+    \end{itemize}
+\end{itemize}
 
-\end{consigna}
+\item Req \#6: el producto debe permitir la programación de secuencias de riego en base a fecha, hora y duración o humedad del sustrato, con una precisión de ±1 minuto (1.6).
+\begin{itemize}
+    \item Verificación:
+    \begin{itemize}
+        \item Pruebas de programación de eventos: se programarán distintas secuencias de riego y se medirán los tiempos de ejecución con un cronómetro para confirmar que cumplen con la precisión establecida.
+        \item Simulación de condiciones de riego: se realizarán simulaciones donde se modifiquen las condiciones de humedad del sustrato para verificar que las secuencias programadas respondan correctamente.
+    \end{itemize}
+    \item Validación:
+    \begin{itemize}
+        \item Prueba en campo por el cliente: se permitirán pruebas directas con el cliente, quien podrá configurar y activar las secuencias para verificar la exactitud y cumplimiento de los tiempos establecidos.
+    \end{itemize}
+\end{itemize}
+
+Req \#7: se deben realizar diagramas esquemáticos del circuito, PCB y diagramas de conexiones (2.2).
+\begin{itemize}
+    \item Verificación:
+    \begin{itemize}
+        \item Revisión de diagramas: se revisarán los diagramas esquemáticos y de conexiones para asegurar que representen correctamente el diseño del sistema.
+        \item Comparación con el prototipo físico: se compararán los diagramas con el prototipo para validar que todas las conexiones y componentes estén correctamente documentados.
+    \end{itemize}
+    \item Validación:
+    \begin{itemize}
+        \item Aprobación del cliente: el cliente revisará los diagramas y confirmará que son claros, detallados y útiles para la comprensión del sistema.
+    \end{itemize}
+\end{itemize}
+
+Req \#8: el sistema debe ser sometido a pruebas de funcionalidad completas para verificar el correcto funcionamiento de todas las características (3.1).
+\begin{itemize}
+    \item Verificación:
+    \begin{itemize}
+        \item Pruebas unitarias y de integración: se llevarán a cabo pruebas unitarias de cada módulo y pruebas de integración para asegurar que todas las funciones se ejecuten correctamente y sin errores.
+        \item Revisión de plan de pruebas: se ejecutará un plan de pruebas detallado que cubra cada funcionalidad del sistema y registre los resultados obtenidos.
+    \end{itemize}
+    \item Validación:
+    \begin{itemize}
+        \item Revisión del resultado de pruebas con el cliente: el cliente revisará los informes de pruebas y participará en sesiones de prueba para confirmar que todas las funciones operen como se espera.
+    \end{itemize}
+\end{itemize}
+
+Req \#9: El firmware debe pasar por pruebas de validación de comunicación de red (HTTP o MQTT) (3.3).
+\begin{itemize}
+    \item Verificación:
+    \begin{itemize}
+        \item Pruebas de comunicación de red: se probarán las conexiones de red utilizando HTTP y MQTT para validar la estabilidad y velocidad de comunicación del firmware con los dispositivos conectados.
+        \item Monitoreo de paquetes y latencia: se analizarán los paquetes de datos transmitidos para comprobar la correcta codificación, entrega y recepción sin errores.
+    \end{itemize}
+    \item Validación:
+    \begin{itemize}
+        \item Validación de conexión con el cliente: el cliente podrá conectarse al sistema y comprobar que las comunicaciones se realicen sin fallos y con la rapidez adecuada.
+    \end{itemize}
+\end{itemize}
+
+Req \#10: El hardware debe ser testeado para asegurar su resistencia y fiabilidad en ambientes urbanos interiores y exteriores (3.4).
+\begin{itemize}
+    \item Verificación:
+    \begin{itemize}
+        \item Pruebas de resistencia a factores ambientales: se someterá el hardware a pruebas de exposición a temperatura, humedad y vibraciones para evaluar su resistencia en condiciones extremas.
+        \item Revisión de especificaciones técnicas: se compararán los resultados de las pruebas con las especificaciones técnicas y los estándares de calidad para confirmar el cumplimiento.
+    \end{itemize}
+    \item Validación:
+    \begin{itemize}
+        \item Pruebas en condiciones reales: el cliente observará la operatividad del hardware en situaciones reales de uso, tanto en interiores como exteriores, para validar su fiabilidad.
+    \end{itemize}
+\end{itemize}
+\end{itemize}
+
 
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
 
-\begin{consigna}{red}
-Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
+%\begin{consigna}{red}
+%Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
+
+%\begin{itemize}
+%	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:\\
+%	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
+%	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, los problemas que surgieron y cómo se solucionaron:\\
+%	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
+%	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:\\
+%	  - Indicar esto y quién financiará los gastos correspondientes.
+%\end{itemize}
+
+%\end{consigna}
+
+
+Al finalizar el proyecto, el responsable del desarrollo del prototipo llevará a cabo una reunión final de evaluación para asegurar una revisión completa del trabajo realizado. A continuación, se detallan las actividades y pautas a seguir durante esta reunión:
 
 \begin{itemize}
-	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
-	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, los problemas que surgieron y cómo se solucionaron:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
-	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:\\
-	  - Indicar esto y quién financiará los gastos correspondientes.
+    \item \textbf{Análisis de respeto al plan de proyecto original:}
+    \begin{itemize}
+        \item Se compararán los tiempos reales de ejecución con los planificados, verificando si se respetaron los plazos y cronogramas establecidos.
+        \item Se revisará si los requisitos solicitados fueron totalmente cumplidos, considerando tanto los aspectos funcionales como las especificaciones técnicas del prototipo.
+        \item Se evaluarán los hitos y entregables para determinar si se completaron a tiempo y dentro de los parámetros definidos.
+        \item Se elaborará un informe de cumplimiento que documente las áreas donde hubo conformidad con el plan, y se identificarán aquellas donde se presentaron desviaciones.
+        \item \textbf{Responsable:} el desarrollador principal será el encargado de este análisis, quien presentará los resultados en la reunión final con todos los interesados para discutir y validar la información.
+    \end{itemize}
+    
+    \item \textbf{Identificación de técnicas y procedimientos empleados, destacando tanto aquellos que fueron más útiles como los que resultaron menos efectivos, junto con los problemas surgidos y las soluciones implementadas:}
+    \begin{itemize}
+        \item Se identificarán las técnicas y procedimientos que resultaron más efectivos, así como aquellos que no aportaron el valor esperado en la ejecución de cada actividad, junto con los problemas o inconvenientes surgidos durante el proyecto.
+        \item Se documentarán las soluciones aplicadas a cada problema, estableciendo un registro detallado que permita aprender de la experiencia.
+        \item \textbf{Responsable:} el desarrollador principal realizará esta actividad, con la colaboración del orientador o asesor técnico, en caso de que se cuente con su apoyo.
+        \item \textbf{Procedimiento:} se dejará registro en un informe de las lecciones aprendidas, destacando qué prácticas deben repetirse y cuáles deben evitarse en futuros proyectos.
+    \end{itemize}
+    
+    \item \textbf{Agradecimiento a los interesados y colaboradores:}
+    \begin{itemize}
+        \item Se aprovechará la jornada de defensas organizada por el posgrado para realizar los agradecimientos formales a todos los interesados, colaboradores y personas que hayan contribuido significativamente al proyecto.
+        \item Se preparará un mensaje de agradecimiento que reconozca el apoyo recibido y destaque la importancia de cada colaborador en el éxito del proyecto.
+        \item \textbf{Responsable:} el desarrollador principal se encargará de preparar y presentar el agradecimiento durante la jornada.
+        \item \textbf{Financiamiento:} el posgrado se encargará de la organización del evento, dado que forma parte de las jornadas de defensa.
+    \end{itemize}
 \end{itemize}
 
-\end{consigna}
 
 \end{document}
