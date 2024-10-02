@@ -164,7 +164,7 @@ Los sistemas hidropónicos actuales dependen del usuario para medir de forma man
 \label{fig:d_bloques}
 \end{figure}
 
-En la figura \ref{fig:d_bloques} se presenta el diagrama en bloques de la solución propuesta. Este sistema permitirá controlar el riego, la iluminación y la ventilación de las raíces, al tiempo que monitoreará otras variables críticas para su operación. Se diseñará para un cultivo urbano pequeño, ubicado en el interior de una vivienda, pero será fácilmente escalable, ya que se podrá ampliar simplemente multiplicando el módulo completo. 
+En la figura \ref{fig:d_bloques} se presenta el diagrama en bloques de la solución propuesta. Este sistema permitirá controlar el riego, la iluminación y la oxigenación de las raíces, al tiempo que monitoreará otras variables críticas para su operación. Se diseñará para un cultivo urbano pequeño, ubicado en el interior de una vivienda, pero será fácilmente escalable, ya que se podrá ampliar simplemente multiplicando el módulo completo. 
 %El servidor central será diseñado para gestionar y centralizar la información de una gran cantidad de módulos, de modo que el usuario solo necesite registrar el suyo en el sistema.
 
 \section{2. Identificación y análisis de los interesados}
@@ -221,7 +221,7 @@ El proyecto incluye:
 		\end{itemize}
 	\item Pruebas y validación del prototipo.
 		\begin{itemize}
-		\item Realización de pruebas en un entorno controlado con cultivos hidropónicos verticales para validar la precisión y efectividad del sistema en el control del riego, la iluminación y la ventilación.
+		\item Realización de pruebas en un entorno controlado con cultivos hidropónicos verticales para validar la precisión y efectividad del sistema en el control del riego, la iluminación y la oxigenación.
 		\item Ajuste de componentes y firmware según los resultados obtenidos durante las pruebas.
 		\end{itemize}
 	\item Desarrollo de la PCB centralizadora de los módulos electrónicos utilizados.
@@ -925,7 +925,7 @@ Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
 Retraso en la entrega de componentes electrónicos & 6 & 7 & 42 & 4 & 3 & 12 \\ \hline
 Dificultades en la integración del hardware y software & 8 & 6 & 48 & 5 & 4 & 20 \\ \hline
 Cambios en las especificaciones del prototipo & 7 & 5 & 35 & 4 & 3 & 12 \\ \hline
-Componentes defectuosos & 9 & 4 & 36 & 5 & 3 & 15 \\ \hline
+Componentes defectuosos & 9 & 4 & 36 & 9 & 3 & 27 \\ \hline
 Destrucción del prototipo de hardware & 10 & 3 & 30 & -& - & - \\ \hline
 Redefiniciones por parte del orientador & 6 & 5 & 30 & - & -& - \\ \hline
 \end{tabularx}%
@@ -969,7 +969,7 @@ Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean may
 	\begin{itemize}
 		\item Establecer revisiones periódicas con el cliente o las partes interesadas para anticipar posibles cambios y ajustar el desarrollo en las fases iniciales.
 		\item Mantener una flexibilidad en el diseño del prototipo, de modo que se puedan implementar modificaciones sin afectar de manera significativa los plazos o los costos.
-		\item Documentar detalladamente los requisitos desde el inicio, creando un marco claro que reduzca la probabilidad de que se soliciten cambios importantes durante las etapas avanzadas del desarrollo.
+		\item Documentar detalladamente los requisitos desde el inicio.
 	\end{itemize}
     \item Severidad (S*): 4.\\
     Justificación: la planificación de revisiones frecuentes y la flexibilidad en el diseño permiten adaptarse de manera más eficiente a los cambios, lo que reduce la severidad de su impacto en el cronograma o el presupuesto.
@@ -981,11 +981,11 @@ Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean may
 \begin{itemize}
 	\item Plan de mitigación: para mitigar el riesgo de recibir componentes defectuosos, se implementarán las siguientes acciones:
 	\begin{itemize}
-		\item Inspeccionar y verificar la calidad de los componentes al momento de su recepción, realizando pruebas preliminares de funcionamiento antes de su integración en el sistema.
-		\item Comprar componentes de alta calidad siempre que sea posible dentro del presupuesto, priorizando proveedores con historial comprobado de fiabilidad.
+		\item Inspeccionar y verificar la calidad de los componentes al momento de su recepción, realizar pruebas preliminares de funcionamiento antes de su integración en el sistema.
+		\item Comprar componentes de alta calidad siempre que sea posible dentro del presupuesto, priorizar proveedores con historial comprobado de fiabilidad.
 	\end{itemize}
-    \item Severidad (S*): 5.\\
-    Justificación: inspeccionar los componentes a la llegada y realizar pruebas preliminares de funcionamiento pueden ayudar a detectar defectos antes de la integración.
+    \item Severidad (S*): 9.\\
+    Justificación: la severidad no cambia.
     \item Probabilidad de ocurrencia (O*): 3.\\
     Justificación: comprar componentes de alta calidad a proveedores confiables reduce la probabilidad de recibir componentes defectuosos.
 \end{itemize}
@@ -1182,7 +1182,7 @@ Al finalizar el proyecto, el responsable del desarrollo del prototipo llevará a
         \item \textbf{Responsable:} el desarrollador principal será el encargado de este análisis, quien presentará los resultados en la reunión final con todos los interesados para discutir y validar la información.
     \end{itemize}
     
-    \item \textbf{Identificación de técnicas y procedimientos empleados, destacando tanto aquellos que fueron más útiles como los que resultaron menos efectivos, junto con los problemas surgidos y las soluciones implementadas:}
+    \item \textbf{Análisis de técnicas y procedimientos empleados:}
     \begin{itemize}
         \item Se identificarán las técnicas y procedimientos que resultaron más efectivos, así como aquellos que no aportaron el valor esperado en la ejecución de cada actividad, junto con los problemas o inconvenientes surgidos durante el proyecto.
         \item Se documentarán las soluciones aplicadas a cada problema, estableciendo un registro detallado que permita aprender de la experiencia.
